@@ -1,4 +1,4 @@
-from distutils.core import setup
+from setuptools import setup
 from Cython.Build import cythonize
 from distutils.extension import Extension
 
@@ -31,5 +31,6 @@ setup(
     author_email='git@mrklie.com',
     license='GPL3',
     install_requires=['Cython'],
+    test_suite="tests",
     ext_modules=cythonize(ext)
 )

@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+
+# Update fastText submodule
+
+git submodule foreach git pull origin master
+make -C fastText
+
+# Retrain
+
+mkdir -p out
+./fastText/fasttext supervised -input data/alice_adventures.txt -output out/alice
+
+# Regenerate tests
+
+cat data/queries.txt | ./fastText/fasttext print-word-vectors out/alice.bin > data/vectors.w2vt
