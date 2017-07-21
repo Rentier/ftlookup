@@ -7,9 +7,9 @@ This project needs *Cython* and *numpy*.
 
 ## Usage
 
-  import ftlookup
+    import ftlookup
 
-  model = ftlookup.FastTextWrapper() 
-  model.loadModel('data/alice.bin')
-  print(model.vector_size)
-  print(model.getVector('Alice'))
+    model = ftlookup.FastTextWrapper() 
+    model.loadModel('data/alice.bin')
+    print(model.vector_size)
+    print(model.getVector('Alice'))
