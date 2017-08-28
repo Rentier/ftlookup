@@ -2,6 +2,8 @@ from setuptools import setup
 from Cython.Build import cythonize
 from distutils.extension import Extension
 
+import numpy as np
+
 sourcefiles  = [
     'ftlookup/ftlookup.pyx', 
     'fastText/src/args.cc',
@@ -19,7 +21,7 @@ compile_opts = ['-std=c++11', '-pthread']
 ext=[Extension('*',
             sourcefiles,
             extra_compile_args=compile_opts,
-            include_dirs=['fastText/src'],
+            include_dirs=['fastText/src', np.get_include()],
             language='c++')]
 
 setup(
